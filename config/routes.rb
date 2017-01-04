@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
-devise_for :users, :controllers => { registrations: 'users/registrations' }
+  devise_for :users, :controllers => { registrations: 'users/registrations' }
 
   get 'welcome/index'
 
-  root 'welcome#index'
+  root 'parking_spaces#index'
   root to: "home#index"
+
+  resources :parking_spaces
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

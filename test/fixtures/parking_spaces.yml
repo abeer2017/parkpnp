@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  area_no: MyString
+  cost_per_hour: 9.99
+  available: false
+  instant_booking: false
+
+two:
+  area_no: MyString
+  cost_per_hour: 9.99
+  available: false
+  instant_booking: false

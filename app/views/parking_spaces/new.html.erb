@@ -1,0 +1,15 @@
+<h1>parking Area</h1>
+<%= form_for :parking_space , url: parking_spaces_path do |f| %>
+  <p>
+    <%= f.label :area_no %><br>
+    <%= f.text_field :area_no %>
+  </p>
+ 
+  <p>
+    <%= f.label :cost_per_hour %><br>
+    <%= f.number_field :cost_per_hour %>
+  </p>
+
+    <%= f.submit %>
+  </p>
+<% end %>
