@@ -1,7 +1,11 @@
 class ParkingSpacesController < ApplicationController
 
   def index
-    @parking_spaces = ParkingSpace.all
+    if current_user.role == true
+      @parking_spaces = ParkingSpace.all
+    else
+      @parking_spaces =ParkingSpace.where(available: true)
+    end
   end
 
   def new
