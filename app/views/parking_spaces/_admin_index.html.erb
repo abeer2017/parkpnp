@@ -1,0 +1,17 @@
+<%= link_to 'New parking space', new_parking_space_path, class: 'btn btn-success pull-right' %><br /><br /><hr />
+<table class="table">
+  <tr>
+    <th>Area No.</th>
+    <th>Cost per hour</th>
+    <th></th>
+  </tr>
+  <% @parking_spaces.each do |parking_space| %>
+    <tr>
+      <td><%= parking_space.area_no %></td>
+      <td><%= parking_space.cost_per_hour %></td>
+      <td><%= link_to 'Destroy', parking_space_path(parking_space),
+              method: :delete,
+              data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %></td>
+    </tr>
+  <% end %>
+</table>

@@ -1,36 +1,12 @@
 <h1>Listing Parking Spaces</h1>
 <div class="center_div">
   <% if current_user.role == true %>
-    <%= link_to 'New parking_space', new_parking_space_path, class: 'btn btn-success' %>
+    <%= render 'admin_index' %>
+  <% else %>
+    <%= render 'user_index' %>
   <% end %>
-  <table class="table">
-    <tr>
-      <th>Area No.</th>
-      <th>Cost per hour</th>
-      <th>Start Time</th>
-      <th>End Time</th>
-      <th>Book</th>    
-    </tr>
-   
-    <% @parking_spaces.each do |parking_space| %>
-      <%= form_for([current_user, current_user.bookings.build]) do |f| %>
-        <tr>
-          <td><%= parking_space.area_no %></td>
-          <td><%= parking_space.cost_per_hour %></td>
-          <%= f.hidden_field :parking_space_id, :value => parking_space.id %>
-          <td><%= f.time_select :start_time, discard_minute: true %></td>
-          <td><%= f.time_select :end_time, discard_minute: true %></td>
-          <td><%= f.submit %></td>
-          <% if current_user.role == true %>
-          <td><%= link_to 'Destroy', parking_space_path(parking_space),
-                  method: :delete,
-                  data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %></td>
-          <% end %>
-        </tr>
-      <% end %>
-    <% end %>
-  </table>
 </div>
+
 <style type="text/css">
   .center_div{
     margin: 0 auto;
