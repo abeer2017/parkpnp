@@ -1,0 +1,30 @@
+<div class="well well-sm text-center">
+  <h1>Booking Detail Page</h1>
+  <p>Hear is your current parking space booking detail!</p> 
+</div>
+<div class="row">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4">
+    <table class="table">
+      <tr><td><h3>User Name: </h3></td><td><h4><%= @user.name %></h4></td></tr>
+      <tr><td><h3>Parking Area No: </h3></td><td><h4><%= @parking_space.area_no %></h4></td></tr>      
+      <tr><td><h3>Start Time: </h3></td><td><h4><%= @booking.start_time.strftime("%H") %></h4></td></tr>
+      <tr><td><h3>End Time: </h3></td><td><h4><%= @booking.end_time.strftime("%H") %></h4></td></tr>
+      <tr><td><h3>Cost per hour: </h3></td><td><h4><%= @parking_space.cost_per_hour %> Rs.</h4></td></tr>
+      <tr><td><h3>Total Cost: </h3></td><td><h4><%= @booking.total_cost %></h4></td></tr>
+    </table>
+    <%#= link_to("Label", {:controller => :parking_spaces, :action => :index}, :class => "btn btn-primary center-block", :onclick => "msgFunction()") %>
+    <button onclick="msgFunction()" type="submit" value="Submit" class="btn btn-primary center-block">Submit</button>
+    <%= link_to 'Back', :back %>
+  </div>
+</div>
+<style type="text/css">
+  h3, h4{
+    display: inline;
+  }
+</style>
+<script type="text/javascript">
+  function msgFunction() {
+    alert("Please wait, Booking is forward to Admin for Confirmation!");
+}
+</script>

@@ -7,7 +7,13 @@ class BookingsController < ApplicationController
   def create
     @user = current_user
     @booking = @user.bookings.create(booking_params)
-    redirect_to parking_spaces_path
+    redirect_to user_booking_path(@user, @booking)
+  end
+
+  def show
+    @booking = Booking.find(params[:id])
+    @user = current_user
+    @parking_space = ParkingSpace.where(:id =>  @booking.parking_space_id).first
   end
  
   private
