@@ -42,6 +42,8 @@ gem 'devise'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 
+# Use rails-erd for create ERD diagram of rails model
+gem "rails-erd"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
