@@ -3,14 +3,12 @@
   <% if current_user.role == true %>
     <%= link_to 'New parking_space', new_parking_space_path, class: 'btn btn-success' %>
   <% end %>
-  <%#= form_for([@user, @user.bookings.build]) do |f| %>
   <table class="table">
     <tr>
       <th>Area No.</th>
       <th>Cost per hour</th>
       <th>Start Time</th>
       <th>End Time</th>
-      <th>Total Cost</th>
       <th>Book</th>    
     </tr>
    
@@ -19,9 +17,8 @@
         <tr>
           <td><%= parking_space.area_no %></td>
           <td><%= parking_space.cost_per_hour %></td>
-          <td></td>
-          <td></td>
-          <td><%= f.text_field :total_cost %></td>
+          <td><%= f.time_select :start_time, discard_minute: true %></td>
+          <td><%= f.time_select :end_time, discard_minute: true %></td>
           <td><%= f.submit %></td>
           <% if current_user.role == true %>
           <td><%= link_to 'Destroy', parking_space_path(parking_space),
