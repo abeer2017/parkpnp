@@ -13,10 +13,11 @@
     </tr>
    
     <% @parking_spaces.each do |parking_space| %>
-      <%= form_for([current_user, current_user.booking.build]) do |f| %>
+      <%= form_for([current_user, current_user.bookings.build]) do |f| %>
         <tr>
           <td><%= parking_space.area_no %></td>
           <td><%= parking_space.cost_per_hour %></td>
+          <%= f.hidden_field :parking_space_id, :value => parking_space.id %>
           <td><%= f.time_select :start_time, discard_minute: true %></td>
           <td><%= f.time_select :end_time, discard_minute: true %></td>
           <td><%= f.submit %></td>

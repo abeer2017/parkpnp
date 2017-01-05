@@ -1,5 +1,6 @@
 class Booking < ApplicationRecord
   belongs_to :user
+  belongs_to :parking_space
   before_create :total_cost
 
   private
