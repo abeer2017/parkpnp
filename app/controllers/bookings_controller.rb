@@ -7,7 +7,11 @@ class BookingsController < ApplicationController
   def create
     @user = current_user
     @booking = @user.bookings.create(booking_params)
-    redirect_to user_booking_path(@user, @booking)
+    if @booking.save
+      redirect_to parking_spaces_path
+    else
+      flash.now[:error] = "Could not booking"
+    end
   end
 
   def show
