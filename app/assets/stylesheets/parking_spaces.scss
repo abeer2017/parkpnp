@@ -1,3 +1,15 @@
 // Place all the styles related to the ParkingSpaces controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.center_div{
+  margin: 0 auto;
+  width:40% /* value of your choice which suits your alignment */
+  }
+.center_div2{
+  margin: 0 auto;
+  width:70% /* value of your choice which suits your alignment */
+}
+.tag-center tr > th, tr > td {
+  text-align: center;   
+ }

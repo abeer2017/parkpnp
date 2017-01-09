@@ -1,18 +1,8 @@
 <h1>Listing Parking Spaces</h1>
-<div class="center_div">
+<div class="center_div2">
   <% if current_user.role == true %>
     <%= render 'admin_index' %>
   <% else %>
     <%= render 'user_index' %>
   <% end %>
 </div>
-
-<style type="text/css">
-  .center_div{
-    margin: 0 auto;
-    width:70% /* value of your choice which suits your alignment */
-  }
-  .table td, th {
-   text-align: center;   
-  }
-</style>
