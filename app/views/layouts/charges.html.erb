@@ -1,7 +1,18 @@
 <!DOCTYPE html>
 <html>
-  <head></head>
+  <head>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  </head>
   <body>
-    <%= yield %>
+    <div class = "center-block">
+      <%= yield %>
+    </div>
   </body>
 </html>
+<style type="text/css">  
+    .center-block {  
+    width:40%;  
+    margin-top: 15%;
+    text-align: center;
+    }  
+</style>  

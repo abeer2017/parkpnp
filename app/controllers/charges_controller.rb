@@ -1,10 +1,12 @@
 class ChargesController < ApplicationController
 
   def new
+    @booking = Booking.find(params[:id])
   end
 
   def create
-    @amount = 500
+    @booking = Booking.find params[:booking_id]
+    @amount = @booking.total_cost.to_i*100
 
   customer = Stripe::Customer.create(
     :email => params[:stripeEmail],

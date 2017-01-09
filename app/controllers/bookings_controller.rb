@@ -8,7 +8,8 @@ class BookingsController < ApplicationController
     @user = current_user
     @booking = @user.bookings.create(booking_params)
     if @booking.save
-      redirect_to parking_spaces_path
+      redirect_to new_charge_path(id: @booking)
+      #redirect_to parking_spaces_path
     else
       flash.now[:error] = "Could not booking"
     end

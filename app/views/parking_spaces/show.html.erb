@@ -17,8 +17,8 @@
       </tr>
     </table>
     <%= f.hidden_field :parking_space_id, :value => @parking_space.id %>
-    <%= link_to 'Pay', new_charge_path %>
-    <%#= f.submit 'Booking', :class => 'btn btn-primary center-block' %>
+    <%#= link_to 'Pay', new_charge_path, :class => 'btn btn-primary' %>
+    <%= f.submit 'Booking', :class => 'btn btn-primary center-block' %>
   <% end %>
 </div>
 
