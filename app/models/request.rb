@@ -1,3 +1,6 @@
 class Request < ApplicationRecord
-  belongs_to :user
+  
+  #Concern
+  include Bookable
+  
 end

@@ -22,7 +22,9 @@ class BookingsController < ApplicationController
   end
  
   private
-    def booking_params
-      params.require(:booking).permit(:total_cost, :start_time, :end_time, :parking_space_id)
-    end
+
+  def booking_params
+    params.require(:booking).permit(:total_cost, :start_time, :end_time, :parking_space_id)
+  end
+  
 end
