@@ -1,7 +1,6 @@
 <h1>Show page</h1>
 <div class="center_div">
   <%= form_for([current_user, current_user.bookings.build]) do |f| %>
-  <%#= form_for :booking do |f| %>
     <table class="table">
       <tr>
         <td>Name :</td><td><%= @parking_space.area_no %></td>
@@ -17,7 +16,6 @@
       </tr>
     </table>
     <%= f.hidden_field :parking_space_id, :value => @parking_space.id %>
-    <%#= link_to 'Pay', new_charge_path, :class => 'btn btn-primary' %>
     <%= f.submit 'Booking', :class => 'btn btn-primary center-block' %>
   <% end %>
 </div>
