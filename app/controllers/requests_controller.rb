@@ -4,11 +4,16 @@ class RequestsController < ApplicationController
     @request = Request.new
   end
 
+  def index
+    @request_hold = current_user.requests.where(approve: false)
+    @request_approve = current_user.requests.where(approve: true)
+  end
+
   def create
     @user = current_user
     @request = @user.requests.create(request_params)
     if @request.save
-      redirect_to user_request_path(@request,@user)
+      redirect_to user_requests_path(@request,@user)
     else
       flash.now[:error] = "Could not booking"
       render new

@@ -1,0 +1,16 @@
+<table class="table tag-center">
+  <tr>
+    <th>Area No.</th>
+    <th>Start Time</th>
+    <th>End Time</th>
+    <th>Total Cost</th>
+  </tr>
+  <% request.each do |request| %>
+    <tr>
+      <td><%= request.parking_space.area_no %></td>
+      <td><%= request.start_time %></td>
+      <td><%= request.end_time %></td>
+      <td><%= request.total_cost %></td>
+    </tr>
+  <% end %>
+</table>

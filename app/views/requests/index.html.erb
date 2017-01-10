@@ -1,0 +1,7 @@
+<h4>List of approved request</h4>
+<%= render :partial => 'request_index', :locals => { :request => @request_approve } %>
+
+<h4>List of pending request</h4>
+<%= render :partial => 'request_index', :locals => { :request => @request_hold } %>
+
+
