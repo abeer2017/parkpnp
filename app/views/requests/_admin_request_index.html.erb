@@ -1,0 +1,20 @@
+<table class="table tag-center">
+  <tr>
+    <th>User's Email id</th>
+    <th>Area No.</th>
+    <th>Start Time</th>
+    <th>End Time</th>
+    <th>Total Cost</th>
+    <th>Action</th>
+  </tr>
+  <% @request.each do |request| %>
+    <tr>
+      <td><%= request.user.email %></td>
+      <td><%= request.parking_space.area_no %></td>
+      <td><%= request.start_time %></td>
+      <td><%= request.end_time %></td>
+      <td><%= request.total_cost %></td>
+      <td><%= link_to 'Approve', user_requests_path(request_id: request)  %></td>
+    </tr>
+  <% end %>
+</table>

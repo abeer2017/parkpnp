@@ -1,7 +1,19 @@
-<h4>List of approved request</h4>
-<%= render :partial => 'request_index', :locals => { :request => @request_approve } %>
-
-<h4>List of pending request</h4>
-<%= render :partial => 'request_index', :locals => { :request => @request_hold } %>
-
+<% if current_user.role == true %>
+  <%= render :partial => 'admin_request_index' %>
+<% else %>
+  <h4>List of approved request</h4>
+  <% if @request_approve.any? %>
+    <%= render :partial => 'request_index', :locals => { :request => @request_approve } %>
+  <% else %>
+    <h3>No Record Found.</h3>
+  <% end %>
+  <hr />
+  <h4>List of pending request</h4>
+  <% if @request_hold.any? %>
+    <%= render :partial => 'request_index', :locals => { :request => @request_hold }  %>
+  <% else %>
+    <h3>No Record Found.</h3>
+  <% end %>
+<% end %>
+<%= button_to 'back', root_path, class: 'btn btn-primary', method: :get %>
 

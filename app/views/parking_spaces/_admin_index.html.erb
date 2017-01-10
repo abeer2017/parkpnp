@@ -1,4 +1,8 @@
-<%= link_to 'New parking space', new_parking_space_path, class: 'btn btn-success pull-right' %><br /><br /><hr />
+<div class="pull-right">
+  <%= link_to 'New parking space', new_parking_space_path, class: 'btn btn-success' %>
+  <%= link_to 'Request', user_requests_path(current_user), class: 'btn btn-primary' %>
+</div>
+<br /><br /><hr />
 <table class="table">
   <tr>
     <th>Area No.</th>
