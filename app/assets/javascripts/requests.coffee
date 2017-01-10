@@ -3,5 +3,5 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).ready ->
-  $('.alert').fadeOut 3000
+  $('.alert').fadeOut 5000
   return
