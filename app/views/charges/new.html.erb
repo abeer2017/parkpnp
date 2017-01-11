@@ -16,5 +16,6 @@
           data-description="A month's subscription"
           data-amount="<%= @request.total_cost*100 %>"
           data-locale="auto"></script>
-<% end %>
+<% end %><br />
+<%= link_to 'Cancel', user_requests_path(current_user), class: 'btn btn-default'  %>
 
