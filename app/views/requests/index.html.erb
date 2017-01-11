@@ -1,16 +1,16 @@
-<% if current_user.role == true %>
+<% if current_user.role == true %> <!-- Admin -->
   <%= render :partial => 'admin_request_index' %>
-<% else %>
+<% else %> <!-- User -->
   <h4 style="text-align: center">List of approved request</h4>
   <% if @request_approve.any? %>
-    <%= render :partial => 'request_index', :locals => { :request => @request_approve } %>
+    <%= render :partial => 'approve_request_index', :locals => { request: @request_approve } %>
   <% else %>
     <h3>No Record Found.</h3>
   <% end %>
   <hr />
   <h4 style="text-align: center">List of pending request</h4>
   <% if @request_hold.any? %>
-    <%= render :partial => 'request_index', :locals => { :request => @request_hold }  %>
+    <%= render :partial => 'hold_request_index', :locals => { request: @request_hold }  %>
   <% else %>
     <h3>No Record Found.</h3>
   <% end %>

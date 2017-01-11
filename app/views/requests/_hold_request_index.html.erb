@@ -1,0 +1,20 @@
+<%#= local_assigns %>
+<table class="table tag-center">
+  <tr>
+    <th>Area No.</th>
+    <th>Start Time</th>
+    <th>End Time</th>
+    <th>Total Cost</th>
+    <th>Action</th>
+  </tr>
+  <% request.each do |request| %>
+    <tr>
+      <td><%= request.parking_space.area_no %></td>
+      <td><%= request.start_time %></td>
+      <td><%= request.end_time %></td>
+      <td><%= request.total_cost %></td>
+      <td><%= link_to 'Delete', cancel_request_path(request), method: :get, class: 'btn btn-danger btn-xs'  %></td>
+    </tr>
+  <% end %>
+</table>
+
