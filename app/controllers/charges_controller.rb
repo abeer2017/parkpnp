@@ -14,7 +14,7 @@ class ChargesController < ApplicationController
     
     #Service
     CreditCardService.new({
-      email: params[:stripeEmail],
+      email: current_user.email,
       source: params[:stripeToken],
       amount: @amount
       }).payment
