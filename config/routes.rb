@@ -13,7 +13,8 @@ Rails.application.routes.draw do
     resources :requests
   end
 
-  get 'requests/:id', to: 'requests#delete', as: :cancel_request
+  delete 'requests/:id', to: 'requests#delete', as: :cancel_request
+  get 'requests/:id', to: 'requests#approve', as: :approve_request
 
   resources :charges
 
