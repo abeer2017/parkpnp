@@ -14,7 +14,8 @@
       <td><%= request.start_time %></td>
       <td><%= request.end_time %></td>
       <td><%= request.total_cost %></td>
-      <td><%= link_to 'Approve', user_requests_path(request_id: request)  %></td>
+      <td><%= link_to 'Approve', user_requests_path(request_id: request)  %> |
+          <%= link_to 'Delete', cancel_request_path(request)  %></td>
     </tr>
   <% end %>
 </table>

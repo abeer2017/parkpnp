@@ -9,8 +9,8 @@ class RequestsController < ApplicationController
         flash[:notice]="Request successfully approved"
       end
     else
-      @request_hold = current_user.requests.where(approve: false)
-      @request_approve = current_user.requests.where(approve: true)
+      @request_hold = current_user.requests.where(approve: false).order(created_at: :desc)
+      @request_approve = current_user.requests.where(approve: true).order(created_at: :desc)
     end
   end
 
@@ -22,11 +22,18 @@ class RequestsController < ApplicationController
     @user = current_user
     @request = @user.requests.create(request_params)
     if @request.save
+      flash[:notice] = "Your request successfully send to Admin for approval. Check it in pending list below."
       redirect_to user_requests_path(@user,@request)
     else
       flash.now[:error] = "Could not booking"
       render new
     end
+  end
+
+  def delete
+    @request = Request.find(params[:id])
+    @request.destroy
+    redirect_to user_requests_path(current_user)
   end
 
   private
