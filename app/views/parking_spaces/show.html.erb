@@ -1,7 +1,7 @@
 <h1>Show page</h1>
 <div class="center_div">
   <%= form_for([current_user, current_user.requests.build]) do |f| %>
-    <table class="table">
+    <table class="table table-striped">
       <tr>
         <td>Name :</td><td><%= @parking_space.area_no %></td>
       </tr>

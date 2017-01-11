@@ -1,18 +1,29 @@
 <% if current_user.role == true %> <!-- Admin -->
+  <div class="row">
+    <div class="pull-right">
+      <%= link_to 'Parking Space', parking_spaces_path(current_user), class: 'btn btn-primary' %>
+    </div>
+  </div>
+  <h2 class="text-center">List of request for parking spaces</h2>
   <%= render :partial => 'admin_request_index' %>
 <% else %> <!-- User -->
-  <h4 style="text-align: center">List of approved request</h4>
+  <div class="row">
+    <div class="pull-right">
+      <%= link_to 'Parking Space', parking_spaces_path(current_user), class: 'btn btn-primary' %>
+      <%= link_to 'Booking', user_bookings_path(current_user, @bookings), class: 'btn btn-success' %>
+    </div>
+  </div>
+  <h2 class="text-center">List of approved request</h2>
   <% if @request_approve.any? %>
     <%= render :partial => 'approve_request_index', :locals => { request: @request_approve } %>
   <% else %>
-    <h3>No Record Found.</h3>
-  <% end %>
+    <hr /><h3 class="text-center">No Record Found.</h3><hr />  <% end %>
   <hr />
-  <h4 style="text-align: center">List of pending request</h4>
+  <h2 class="text-center"">List of pending request</h2>
   <% if @request_hold.any? %>
     <%= render :partial => 'hold_request_index', :locals => { request: @request_hold }  %>
   <% else %>
-    <h3>No Record Found.</h3>
+    <hr /><h3 class="text-center">No Record Found.</h3><hr />
   <% end %>
 <% end %>
 <%= button_to 'back', root_path, class: 'btn btn-primary', method: :get %>
