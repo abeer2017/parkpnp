@@ -3,12 +3,7 @@ class RequestsController < ApplicationController
   def index
     if current_user.role == true #Admin
       @request = Request.all.where(approve: false)
-      if params[:request_id]
-        request = Request.find(params[:request_id])
-        request.update(:approve => true)
-        flash[:notice]="Request successfully approved"
-      end
-    else
+    else #User
       @request_hold = current_user.requests.where(approve: false).order(created_at: :desc)
       @request_approve = current_user.requests.where(approve: true).order(created_at: :desc)
     end
@@ -28,6 +23,13 @@ class RequestsController < ApplicationController
       flash.now[:error] = "Could not booking"
       render new
     end
+  end
+
+  def approve
+    @request = Request.find(params[:id])    
+    @request.update(:approve => true)
+    flash[:notice]="Request successfully approved"
+    redirect_to user_requests_path(current_user)
   end
 
   def delete
