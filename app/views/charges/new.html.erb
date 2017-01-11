@@ -1,5 +1,5 @@
 <%= form_tag charges_path do %>
-  <%= hidden_field_tag :booking_id, @booking.id %>
+  <%= hidden_field_tag :request_id, @request.id %>
   <article>
     <% if flash[:error].present? %>
       <div id="error_explanation">
@@ -7,14 +7,14 @@
       </div>
     <% end %>
     <label class="amount">
-      <span>Amount: $<%= @booking.total_cost %></span>
+      <span>Amount: $<%= @request.total_cost %></span>
     </label>
   </article>
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="A month's subscription"
-          data-amount="<%= @booking.total_cost*100 %>"
+          data-amount="<%= @request.total_cost*100 %>"
           data-locale="auto"></script>
 <% end %>
 
