@@ -12,7 +12,7 @@
       <td><%= request.start_time %></td>
       <td><%= request.end_time %></td>
       <td><%= request.total_cost %></td>
-      <td><%= link_to 'Delete', cancel_request_path(request), method: :get  %></td>
+      <td><%= link_to 'Delete', cancel_request_path(request), method: :get, class: 'btn btn-danger btn-xs'  %></td>
     </tr>
   <% end %>
 </table>
