@@ -32,8 +32,12 @@ class RequestsController < ApplicationController
 
   def delete
     @request = Request.find(params[:id])
-    @request.destroy
-    redirect_to user_requests_path(current_user)
+    if @request.destroy
+      flash[:notice] = "Request successfully deleted."
+    else
+      flash[:error] = "Request not delete."
+    end
+      redirect_to user_requests_path(current_user)
   end
 
   private
