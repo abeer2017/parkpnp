@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'users/registrations' }
 
   get 'welcome/index'
-
-  root 'parking_spaces#index'
+  root 'welcome#index'
+  #root 'parking_spaces#index'
   root to: "home#index"
 
   resources :parking_spaces
