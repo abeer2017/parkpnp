@@ -2,7 +2,11 @@ class BookingsController < ApplicationController
 
   def index
     @user = current_user
-    @bookings = @user.bookings.all.order(created_at: :desc)
+    if @user.role == true #Admin
+      @bookings = Booking.all.order(created_at: :desc)
+    else
+      @bookings = @user.bookings.all.order(created_at: :desc)
+    end
   end
 
   def new

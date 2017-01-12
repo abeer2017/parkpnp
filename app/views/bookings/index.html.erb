@@ -4,21 +4,5 @@
     <%= link_to 'Request', user_requests_path(current_user), class: 'btn btn-success' %>
   </div>
 </div><br />
-<h2 class="text-center">List of booked parking space</h2>
-<table class="table table-striped tag-center">
-  <tr>
-    <th>Area No.</th>
-    <th>Start Time</th>
-    <th>End Time</th>
-    <th>Paid</th>
-  </tr>
-  <% @bookings.each do |booking| %>
-    <tr>
-      <td><%= booking.parking_space.area_no if booking.parking_space.present? %></td>
-      <td><%= booking.start_time %></td>
-      <td><%= booking.end_time %></td>
-      <td><%= booking.total_cost %></td>
-    </tr>
-  <% end %>
-</table>
+<%= render partial: 'user_booking_index' %>
 

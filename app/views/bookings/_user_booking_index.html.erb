@@ -1,0 +1,23 @@
+<div class="well text-center">
+  <h4>Your booked parking space</h4>
+</div>
+<table class="table table-striped tag-center">
+  <tr>
+    <th>User</th>
+    <th>Area No.</th>
+    <th>Start Time</th>
+    <th>End Time</th>
+    <th>Paid</th>
+    <th>Stripe Token</th>
+  </tr>
+  <% @bookings.each do |booking| %>
+    <tr>
+      <td><%= booking.user.email %></td>
+      <td><%= booking.parking_space.area_no if booking.parking_space.present? %></td>
+      <td><%= booking.start_time %></td>
+      <td><%= booking.end_time %></td>
+      <td><%= booking.total_cost %></td>
+      <td><%= booking.stripe_token %></td>
+    </tr>
+  <% end %>
+</table>
