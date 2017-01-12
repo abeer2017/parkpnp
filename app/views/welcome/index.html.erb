@@ -2,16 +2,16 @@
 <div class="text-center">
   <%= link_to 'Parking Space', parking_spaces_path(current_user), class: 'btn btn-primary' %>
   <%= link_to 'Request', user_requests_path(current_user), class: 'btn btn-success' %>
-  <% if @user.role == false %>
+  <%# if @user.role == false %>
     <%= link_to 'Booking', user_bookings_path(current_user), class: 'btn btn-warning'  %>
-  <% end %>
+  <%# end %>
 </div><br />
 <div class="row">
   <ul class="list-group">
-    <li class="list-group-item"><h3 class="inline">Parking Space -</h3>List of all available Parking spaces.</li>
-    <li class="list-group-item"><h3 class="inline">Request -</h3>List of all Requested for parking spaces.</li>
+    <li class="list-group-item">Parking Space - List of all available Parking spaces.</li>
+    <li class="list-group-item">Request - List of all Requested for parking spaces.</li>
     <% if @user.role == false %>
-      <li class="list-group-item"><h3 class="inline">Booking -</h3>List of booked parking space.</li>
+      <li class="list-group-item">Booking - List of booked parking space.</li>
     <% end %>
   </ul>
 </div>

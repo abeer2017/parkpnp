@@ -2,9 +2,12 @@
   <div class="row">
     <div class="pull-right">
       <%= link_to 'Parking Space', parking_spaces_path(current_user), class: 'btn btn-primary' %>
+      <%= link_to 'Booking', user_bookings_path(current_user, @bookings), class: 'btn btn-warning' %>
     </div>
+  </div><br />
+  <div class="well text-center">
+    <h4>Request for parking space</h4>
   </div>
-  <h2 class="text-center">List of request for parking spaces</h2>
   <%= render :partial => 'admin_request_index' %>
 <% else %> <!-- User -->
   <div class="row">
@@ -12,6 +15,9 @@
       <%= link_to 'Parking Space', parking_spaces_path(current_user), class: 'btn btn-primary' %>
       <%= link_to 'Booking', user_bookings_path(current_user, @bookings), class: 'btn btn-warning' %>
     </div>
+  </div><br />
+  <div class="well text-center">
+    <h4>Your requests for parking space</h4>
   </div>
   <h2 class="text-center">List of approved request</h2>
   <% if @request_approve.any? %>

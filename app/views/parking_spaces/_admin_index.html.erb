@@ -1,13 +1,17 @@
 <div class="pull-right">
-  <%= link_to 'New parking space', new_parking_space_path, class: 'btn btn-success' %>
-  <%= link_to 'Request', user_requests_path(current_user), class: 'btn btn-primary' %>
+  <%= link_to 'Create parking space', new_parking_space_path, class: 'btn btn-info' %>
+  <%= link_to 'Request', user_requests_path(current_user), class: 'btn btn-success' %>
+  <%= link_to 'Booking', user_bookings_path(current_user, @bookings), class: 'btn btn-warning' %>
+</div><br />
+<br />
+<div class="well text-center">
+  <h4>List of parking spaces</h4>
 </div>
-<br /><br /><hr />
-<table class="table table-striped">
+<table class="table table-striped tag-center">
   <tr>
     <th>Area No.</th>
     <th>Cost per hour</th>
-    <th></th>
+    <th>Action</th>
   </tr>
   <% @parking_spaces.each do |parking_space| %>
     <tr>
