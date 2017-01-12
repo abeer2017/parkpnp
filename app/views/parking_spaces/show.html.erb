@@ -9,10 +9,10 @@
         <td>Cost per hour :</td><td><%= @parking_space.cost_per_hour %></td>
       </tr>
       <tr>
-        <td>Select start time</td><td><%= f.time_select :start_time, discard_minute: true %></td>
+        <td>Select start time</td><td><%= f.text_field :start_time, class: "datetimepicker" %></td>
       </tr>
       <tr>
-        <td>End Time</td><td><%= f.time_select :end_time, discard_minute: true %></td>
+        <td>End Time</td><td><%= f.text_field :end_time, class: "datetimepicker" %></td>
       </tr>
     </table>
     <%= f.hidden_field :parking_space_id, :value => @parking_space.id %>
@@ -21,3 +21,6 @@
   <% end %>
   <%= button_to 'back', root_path, class: 'btn btn-default center-block', method: :get %>
 </div>
+<script type="text/javascript">
+  jQuery('.datetimepicker').datetimepicker();
+</script>

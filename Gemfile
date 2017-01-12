@@ -44,10 +44,11 @@ gem 'autoprefixer-rails'
 
 # Use rails-erd for create ERD diagram of rails model
 gem "rails-erd"
-
 gem 'hirb'
-
 gem 'stripe'
+source 'https://rails-assets.org' do
+  gem 'rails-assets-datetimepicker'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
