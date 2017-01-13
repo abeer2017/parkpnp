@@ -9,10 +9,10 @@
         <td>Cost per hour :</td><td><%= @parking_space.cost_per_hour %></td>
       </tr>
       <tr>
-        <td>Select start time</td><td><%= f.text_field :start_time, class: "datetimepicker" %></td>
+        <td>Select start time</td><td><%= f.text_field :start_time, class: "datetimepicker", id: "date_timepicker_start" %></td>
       </tr>
       <tr>
-        <td>End Time</td><td><%= f.text_field :end_time, class: "datetimepicker" %></td>
+        <td>End Time</td><td><%= f.text_field :end_time, class: "datetimepicker", id: "date_timepicker_end" %></td>
       </tr>
     </table>
     <%= f.hidden_field :parking_space_id, :value => @parking_space.id %>
@@ -21,6 +21,24 @@
   <% end %>
   <%= button_to 'back', root_path, class: 'btn btn-default center-block', method: :get %>
 </div>
+
 <script type="text/javascript">
-  jQuery('.datetimepicker').datetimepicker();
+  jQuery('.datetimepicker').datetimepicker({formatTime:'H',});
+
+  jQuery(function(){
+   jQuery('#date_timepicker_start').datetimepicker({
+    onShow:function( ct ){
+     this.setOptions({
+      maxDate:jQuery('#date_timepicker_end').val()?jQuery('#date_timepicker_end').val():false
+     })
+    },
+   });
+   jQuery('#date_timepicker_end').datetimepicker({
+    onShow:function( ct ){
+     this.setOptions({
+      minDate:jQuery('#date_timepicker_start').val()?jQuery('#date_timepicker_start').val():false
+     })
+    },
+   });
+  });
 </script>
