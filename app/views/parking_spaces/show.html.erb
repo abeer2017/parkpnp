@@ -1,4 +1,4 @@
-<h1>Show page</h1>
+<h2 class="text-center">Book Parking Space</h2>
 <div class="center_div">
   <%= form_for([current_user, current_user.requests.build]) do |f| %>
     <table class="table table-striped">
@@ -9,10 +9,10 @@
         <td>Cost per hour :</td><td><%= @parking_space.cost_per_hour %></td>
       </tr>
       <tr>
-        <td>Select start time</td><td><%= f.text_field :start_time, class: "datetimepicker", id: "date_timepicker_start" %></td>
+        <td>Select start time :</td><td><%= f.text_field :start_time, class: "datetimepicker", id: "date_timepicker_start" %></td>
       </tr>
       <tr>
-        <td>End Time</td><td><%= f.text_field :end_time, class: "datetimepicker", id: "date_timepicker_end" %></td>
+        <td>Select end time :</td><td><%= f.text_field :end_time, class: "datetimepicker", id: "date_timepicker_end" %></td>
       </tr>
     </table>
     <%= f.hidden_field :parking_space_id, :value => @parking_space.id %>
