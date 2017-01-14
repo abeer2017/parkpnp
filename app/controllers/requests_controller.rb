@@ -2,7 +2,7 @@ class RequestsController < ApplicationController
 
   def index
     if current_user.role == true #Admin
-      @request = Request.all.where(approve: false)
+      @request = Request.all.where(approve: false).order(created_at: :desc)
     else #User
       @request_hold = current_user.requests.where(approve: false).order(created_at: :desc)
       @request_approve = current_user.requests.where(approve: true).order(created_at: :desc)
