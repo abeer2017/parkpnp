@@ -15,18 +15,29 @@
 <% if current_user.role == true %> <!-- Admin -->
   <%= render :partial => 'admin_request_index' %>
 <% else %> <!-- User -->
-  <h2 class="text-center">List of approved request</h2>
-  <% if @request_approve.any? %>
-    <%= render :partial => 'approve_request_index', :locals => { request: @request_approve } %>
-  <% else %>
-    <hr /><h3 class="text-center">No Record Found.</h3><hr />  <% end %>
-  <hr />
-  <h2 class="text-center"">List of pending request</h2>
-  <% if @request_hold.any? %>
-    <%= render :partial => 'hold_request_index', :locals => { request: @request_hold }  %>
-  <% else %>
-    <hr /><h3 class="text-center">No Record Found.</h3><hr />
-  <% end %>
-<% end %>
+  <div class="row">
+    <div class="col-md-6"><div class="border">
+      <h2 class="text-center">List of approved request</h2>
+      <% if @request_approve.any? %>
+        <%= render :partial => 'approve_request_index', :locals => { request: @request_approve } %>
+      <% else %>
+        <hr /><h3 class="text-center">No Record Found.</h3><hr />
+      <% end %></div>
+    </div>
+    <div class="col-md-6"><div class="border">
+      <h2 class="text-center"">List of pending request</h2>
+      <% if @request_hold.any? %>
+        <%= render :partial => 'hold_request_index', :locals => { request: @request_hold }  %>
+      <% else %>
+        <hr /><h3 class="text-center">No Record Found.</h3><hr />
+      <% end %></div>
+    </div>
+  </div>
+<% end %><br/>
 <%= button_to 'back', root_path, class: 'btn btn-primary', method: :get %>
+<style type="text/css">
+  .border{
+    border: 1px solid black;
+  }
+</style>
 
