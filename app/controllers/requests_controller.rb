@@ -26,10 +26,15 @@ class RequestsController < ApplicationController
   end
 
   def approve
-    @request = Request.find(params[:id])    
-    @request.update(:approve => true)
-    flash[:notice]="Request successfully approved"
-    redirect_to user_requests_path(current_user)
+    if current_user.role == true
+      @request = Request.find(params[:id])    
+      @request.update(:approve => true)
+      flash[:notice]="Request successfully approved"
+      redirect_to user_requests_path(current_user)
+    else
+      flash[:alert] = "Not Authorized user"
+      redirect_to :back
+    end
   end
 
   def delete
@@ -41,8 +46,6 @@ class RequestsController < ApplicationController
     end
       redirect_to user_requests_path(current_user)
   end
-
-  private
 
   def request_params
     params.require(:request).permit(:approve, :total_cost, :start_time, :end_time, :parking_space_id)
