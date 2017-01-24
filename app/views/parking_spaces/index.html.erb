@@ -3,17 +3,16 @@
     <h3>Parking Space</h3>
   </div><br />
   <div class="col-md-3">
-    <% if current_user.role == true %>
-      <%= link_to 'Create parking space', new_parking_space_path, class: 'btn btn-info' %>
-    <% end %>
     <%= link_to 'Request', user_requests_path(current_user), class: 'btn btn-success' %>
     <%= link_to 'Booking', user_bookings_path(current_user, @bookings), class: 'btn btn-warning' %>
   </div>
 </div>
 <div class="center_div2">
-  <% if current_user.role == true %>
+  <% if current_user.role == true %> <!-- Admin -->
     <%= render 'admin_index' %>
+    <%= link_to 'Create parking space', new_parking_space_path, class: 'btn btn-info pull-right' %>
   <% else %>
     <%= render 'user_index' %>
   <% end %>
 </div>
+<%= button_to 'back', root_path, class: 'btn btn-primary', method: :get %>

@@ -1,24 +1,20 @@
-<% if current_user.role == true %> <!-- Admin -->
-  <div class="row">
+<div class="row">
+  <div class="col-md-9">
+    <h3>Request</h3>
+  </div><br />
+  <div class="col-md-3">
     <div class="pull-right">
       <%= link_to 'Parking Space', parking_spaces_path(current_user), class: 'btn btn-primary' %>
       <%= link_to 'Booking', user_bookings_path(current_user, @bookings), class: 'btn btn-warning' %>
     </div>
-  </div><br />
-  <div class="well text-center">
-    <h4>Request for parking space</h4>
   </div>
+</div><br />
+<div class="well text-center">
+  <h4>Request for parking space</h4>
+</div>
+<% if current_user.role == true %> <!-- Admin -->
   <%= render :partial => 'admin_request_index' %>
 <% else %> <!-- User -->
-  <div class="row">
-    <div class="pull-right">
-      <%= link_to 'Parking Space', parking_spaces_path(current_user), class: 'btn btn-primary' %>
-      <%= link_to 'Booking', user_bookings_path(current_user, @bookings), class: 'btn btn-warning' %>
-    </div>
-  </div><br />
-  <div class="well text-center">
-    <h4>Your requests for parking space</h4>
-  </div>
   <h2 class="text-center">List of approved request</h2>
   <% if @request_approve.any? %>
     <%= render :partial => 'approve_request_index', :locals => { request: @request_approve } %>
