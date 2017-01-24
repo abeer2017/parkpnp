@@ -20,8 +20,8 @@ class RequestsController < ApplicationController
       flash[:notice] = "Your request successfully send to Admin for approval. Check it in pending list below."
       redirect_to user_requests_path(@user,@request)
     else
-      flash.now[:error] = "Could not booking"
-      render new
+      flash[:alert] = "Invalid Date and Time"
+      redirect_to :back
     end
   end
 
@@ -35,9 +35,9 @@ class RequestsController < ApplicationController
   def delete
     @request = Request.find(params[:id])
     if @request.destroy
-      flash[:notice] = "Request successfully deleted."
+      flash[:alert] = "Request successfully deleted."
     else
-      flash[:error] = "Request not delete."
+      flash[:alert] = "Request not delete."
     end
       redirect_to user_requests_path(current_user)
   end
