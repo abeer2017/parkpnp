@@ -42,8 +42,6 @@ gem 'devise'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 
-# Use rails-erd for create ERD diagram of rails model
-gem "rails-erd"
 gem 'hirb'
 gem 'stripe'
 source 'https://rails-assets.org' do
@@ -55,6 +53,8 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   gem 'rspec-rails', '~> 3.5'
+  # Use rails-erd for create ERD diagram of rails model
+  gem "rails-erd"
 end
 
 group :development do
